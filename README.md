@@ -19,7 +19,7 @@ cd euler-a-isp
 使い方  
 1. 	フォルダを Stable Diffusion WebUI の extensions に配置  
 2. 	WebUI を起動し euler-a-isp をサンプラーリストから選択  
-3. 	好みで `alpha`, `beta`, `omega` を調整し推論の進行をカスタマイズ可 (デフォルト／`a:01`,`b:0.02`,`omega:5`)  
+3. 	好みで `alpha`, `beta`, `omega` を調整し推論の進行をカスタマイズ可 (デフォルト／`a:0.1`,`b:0.02`,`omega:5`)  
 4. 	画像生成を試し補正の効果を確認  
 
 カスタムパラメータ  
@@ -28,6 +28,9 @@ cd euler-a-isp
 `| alpha | 逆散乱問題の影響係数 | 0.1 ~ 1.0 |`   
 `| beta | ノイズ除去率 | 0.01 ~ 0.1 |`   
 `| omega | 波動周期 | 1 ~ 10 |`   
+
+サンプラー進行の比較
+https://github.com/muooon/euler-a-isp/blob/main/ISP-EulerA-GRAF-02GEN-hikaku02.png
 
 推論の視覚化  
 推論の進行を視覚化するには、以下の Python コードを実行してください。
@@ -50,6 +53,6 @@ plt.grid()
 plt.show()
 ```
 ライセンス  
-このプロジェクトは Apache License 2.0 のもと提供されています。
-詳細なライセンス情報については、以下をご参照ください。
+このプロジェクトは Apache License 2.0 のもと提供されています。  
+詳細なライセンス情報については以下をご参照ください。  
 Apache License 2.0
