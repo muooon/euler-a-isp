@@ -41,22 +41,47 @@ cd euler-a-isp
 サンプラー進行の比較  
 ![image01](https://github.com/muooon/euler-a-isp/blob/main/ISP-EulerA-GRAF-02GEN-hikaku02.png)
 
+euler-a-isp の推論進行の視覚化  
+![image01](https://github.com/muooon/euler-a-isp/blob/main/euler-a-isp-iroiro.png)
+Euler a / ISP の進行 (スケジューラ適用)  
+![image01](https://github.com/muooon/euler-a-isp/blob/main/euler-a-isp-iroiro02.png)
 推論の視覚化  
-　推論の進行を視覚化するには、以下の Python コードを実行してください  
+　推論の進行を視覚化するには以下の Python コードを実行してください  
 ```bash
 import numpy as np
 import matplotlib.pyplot as plt
 
-steps = 50
-tau = np.linspace(0, steps, steps)
-euler_values = np.exp(-0.02 * tau)
-euler_isp_values = np.exp(-0.02 * tau) * (1 + 0.1 * np.sin(5 * tau))
+# 日本語フォント設定 (Windows用)
+plt.rcParams["font.family"] = "MS Gothic"
 
-plt.plot(tau, euler_values, label="Euler", color="black")
-plt.plot(tau, euler_isp_values, label="Euler-a-ISP", color="red", linestyle="--")
+# ステップ数
+steps = 50
+t = np.linspace(0, steps, steps)
+
+# Euler a の進行
+euler_a_values = np.exp(-0.02 * t) * (1 + np.sin(5 * t))
+
+# ユーザー入力
+print("Euler a ISP のパラメータを入力してください:")
+alpha = float(input("Alpha 値を入力: "))
+beta = float(input("Beta 値を入力: "))
+omega = float(input("Omega 値を入力: "))
+
+# Euler a ISP の進行（ユーザー入力値を適用）
+euler_isp_values = np.exp(-beta * t) * (1 + alpha * np.sin(omega * t))
+
+# グラフの描画
+plt.figure(figsize=(10, 6))
+
+# Euler a をプロット
+plt.plot(t, euler_a_values, linestyle="-", label="Euler a", color="blue")
+
+# Euler a ISP をプロット（太い線にする）
+plt.plot(t, euler_isp_values, linestyle="-", label=f"Euler a ISP (α={alpha}, β={beta}, Ω={omega})", color="red", linewidth=2.5)
+
 plt.xlabel("ステップ数")
-plt.ylabel("推論の進行")
-plt.title("Euler vs Euler-a-ISP の比較")
+plt.ylabel("推論値")
+plt.title("Euler a と Euler a ISP の比較グラフ")
 plt.legend()
 plt.grid()
 plt.show()
