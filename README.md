@@ -29,8 +29,8 @@ cd euler-a-isp
 `| beta | ノイズ除去率 | 0.01 ~ 0.1 |`   
 `| omega | 波動周期 | 1 ~ 10 |`   
 
-サンプラー進行の比較
-https://github.com/muooon/euler-a-isp/blob/main/ISP-EulerA-GRAF-02GEN-hikaku02.png
+サンプラー進行の比較  
+![image01](https://github.com/muooon/euler-a-isp/blob/main/ISP-EulerA-GRAF-02GEN-hikaku02.png)
 
 推論の視覚化  
 推論の進行を視覚化するには、以下の Python コードを実行してください。
